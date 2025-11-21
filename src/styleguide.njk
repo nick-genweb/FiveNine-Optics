@@ -1,0 +1,742 @@
+---
+layout: base.njk
+title: FiveNine Optics - Style Guide
+---
+
+<style>
+  .styleguide {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    font-family: var(--font-primary);
+  }
+
+  .styleguide h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid #000;
+    padding-bottom: 1rem;
+  }
+
+  .sg-section {
+    margin-bottom: 4rem;
+  }
+
+  .sg-section-title {
+    font-size: 1.8rem;
+    font-weight: var(--font-bold);
+    margin-bottom: 2rem;
+    color: #000;
+  }
+
+  .sg-subsection {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+  }
+
+  .sg-label {
+    font-size: 0.875rem;
+    font-weight: var(--font-semibold);
+    color: #666;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .sg-specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+
+  .sg-spec {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sg-spec-label {
+    font-weight: var(--font-semibold);
+    color: #333;
+    margin-bottom: 0.25rem;
+  }
+
+  .sg-spec-value {
+    color: #666;
+    font-family: 'Courier New', monospace;
+  }
+
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .color-swatch {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .color-preview {
+    height: 100px;
+    width: 100%;
+  }
+
+  .color-info {
+    padding: 1rem;
+    background: white;
+  }
+
+  .color-name {
+    font-weight: var(--font-semibold);
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .color-hex {
+    font-family: 'Courier New', monospace;
+    font-size: 1.125rem;
+    color: #000;
+    margin-bottom: 0.5rem;
+  }
+
+  .color-usage {
+    font-size: 0.8125rem;
+    color: #666;
+    line-height: 1.4;
+  }
+
+  .spacing-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .spacing-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .spacing-visual {
+    background: #4B80EA;
+    height: 40px;
+  }
+
+  .spacing-label {
+    font-family: 'Courier New', monospace;
+    font-weight: var(--font-semibold);
+    min-width: 150px;
+  }
+</style>
+
+<div class="styleguide">
+  <h1>FiveNine Optics Style Guide</h1>
+
+  {# Typography Section #}
+  <section class="sg-section">
+    <h2 class="sg-section-title">Typography</h2>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Heading 1 (H1)</div>
+      <h1>The quick brown fox jumps over the lazy dog</h1>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Family:</span>
+          <span class="sg-spec-value">proxima-nova</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Size:</span>
+          <span class="sg-spec-value">clamp(1.8rem, 5vw, 3.15rem)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Weight:</span>
+          <span class="sg-spec-value">300 (Light)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Line Height:</span>
+          <span class="sg-spec-value">1.3</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Letter Spacing:</span>
+          <span class="sg-spec-value">-0.02em</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Heading 2 (H2)</div>
+      <h2>The quick brown fox jumps over the lazy dog</h2>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Family:</span>
+          <span class="sg-spec-value">proxima-nova</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Size:</span>
+          <span class="sg-spec-value">1.875rem (30px)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Weight:</span>
+          <span class="sg-spec-value">500 (Medium)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Margin Bottom:</span>
+          <span class="sg-spec-value">2rem</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Heading 3 (H3)</div>
+      <h3>The quick brown fox jumps over the lazy dog</h3>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Family:</span>
+          <span class="sg-spec-value">proxima-nova</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Size:</span>
+          <span class="sg-spec-value">1.875rem (30px)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Weight:</span>
+          <span class="sg-spec-value">600 (Semibold)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Paragraph Text</div>
+      <p>The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Family:</span>
+          <span class="sg-spec-value">proxima-nova</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Size:</span>
+          <span class="sg-spec-value">2rem (32px)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Weight:</span>
+          <span class="sg-spec-value">400 (Regular)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Line Height:</span>
+          <span class="sg-spec-value">1.6</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Color:</span>
+          <span class="sg-spec-value">#333333</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Hero Main Text</div>
+      <p style="font-size: 3.4375rem; font-weight: 500; line-height: 1.3; color: #ffffff; background: #000; padding: 2rem;">Trusted. Proven. World-leaders in designing and manufacturing IBS coatings.</p>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Size:</span>
+          <span class="sg-spec-value">3.4375rem (55px)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Weight:</span>
+          <span class="sg-spec-value">500 (Medium)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Line Height:</span>
+          <span class="sg-spec-value">1.3</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Color:</span>
+          <span class="sg-spec-value">#ffffff</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Hero Compliance Text</div>
+      <p style="font-size: 1.5rem; font-weight: 500; color: rgba(255,255,255,0.8); background: #000; padding: 1rem;">ITAR registered and ROHS and REACH compliant.</p>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Size:</span>
+          <span class="sg-spec-value">1.5rem (24px)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Weight:</span>
+          <span class="sg-spec-value">500 (Medium)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Color:</span>
+          <span class="sg-spec-value">rgba(255,255,255,0.8)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Section Headings (Colored)</div>
+      <div style="display: grid; gap: 1rem;">
+        <h2 style="color: #4B80EA; font-size: 1.6875rem; font-weight: 700; letter-spacing: 0.05em; position: relative; padding-left: 2rem;">
+          <span style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; background-color: #4B80EA; border-radius: 50%;"></span>
+          THE FIVENINE SPOTLIGHT
+        </h2>
+        <h2 style="color: #F88015; font-size: 1.6875rem; font-weight: 700; letter-spacing: 0.05em; position: relative; padding-left: 2rem;">
+          <span style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; background-color: #F88015; border-radius: 50%;"></span>
+          OUR STORY
+        </h2>
+        <h2 style="color: #A105E2; font-size: 1.6875rem; font-weight: 700; letter-spacing: 0.05em; position: relative; padding-left: 2rem;">
+          <span style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; background-color: #A105E2; border-radius: 50%;"></span>
+          OUR FACILITY
+        </h2>
+      </div>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Size:</span>
+          <span class="sg-spec-value">1.6875rem (27pt scaled)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Weight:</span>
+          <span class="sg-spec-value">700 (Bold)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Letter Spacing:</span>
+          <span class="sg-spec-value">0.05em</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Dot Size:</span>
+          <span class="sg-spec-value">16px × 16px</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Navigation Text</div>
+      <div style="display: flex; gap: 2rem; font-size: 1.27455rem; font-weight: 600; letter-spacing: 0.05em;">
+        <a href="#">ABOUT</a>
+        <a href="#">PRODUCTS</a>
+        <a href="#">MARKETS</a>
+      </div>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Size:</span>
+          <span class="sg-spec-value">1.27455rem (20.3928px)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Weight:</span>
+          <span class="sg-spec-value">600 (Semibold)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Letter Spacing:</span>
+          <span class="sg-spec-value">0.05em</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Text Transform:</span>
+          <span class="sg-spec-value">uppercase</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Our Story - Industry Icon Titles</div>
+      <h3 style="font-size: 2.1rem; font-weight: 700; text-align: center;">Directed Energy</h3>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Size:</span>
+          <span class="sg-spec-value">2.1rem (33.6px)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Weight:</span>
+          <span class="sg-spec-value">700 (Bold)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Element:</span>
+          <span class="sg-spec-value">H3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Team Section - Description Text</div>
+      <p style="font-size: 3.3125rem; font-weight: 500; color: #ffffff; background: #000; padding: 1rem;">This is the team enabling the biggest emerging technologies of our time.</p>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Size:</span>
+          <span class="sg-spec-value">3.3125rem (53px)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Weight:</span>
+          <span class="sg-spec-value">500 (Medium)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Color:</span>
+          <span class="sg-spec-value">#ffffff</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Team Member Hover Info (Desktop)</div>
+      <div style="text-align: center; background: #000; padding: 2rem;">
+        <h3 style="font-size: 2.625rem; font-weight: 700; color: #4B80EA; margin-bottom: 0.5rem;">RAMIN LALEZARI</h3>
+        <p style="font-size: 2.625rem; font-weight: 300; color: #4B80EA; margin: 0;">PRESIDENT & CO-FOUNDER</p>
+      </div>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Size:</span>
+          <span class="sg-spec-value">2.625rem (42px)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Name Weight:</span>
+          <span class="sg-spec-value">700 (Bold)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Title Weight:</span>
+          <span class="sg-spec-value">300 (Light)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Color:</span>
+          <span class="sg-spec-value">#4B80EA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Modal - Name & Title</div>
+      <div style="background: #333; padding: 2rem;">
+        <h2 style="font-size: 2.625rem; font-weight: 700; color: #4B80EA; margin-bottom: 0.5rem;">RAMIN LALEZARI</h2>
+        <p style="font-size: 2.625rem; font-weight: 300; color: #4B80EA; margin: 0;">PRESIDENT & CO-FOUNDER</p>
+      </div>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Size:</span>
+          <span class="sg-spec-value">2.625rem (42px)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Element:</span>
+          <span class="sg-spec-value">H2 (name), P (title)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Name Weight:</span>
+          <span class="sg-spec-value">700 (Bold)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Title Weight:</span>
+          <span class="sg-spec-value">300 (Light)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Modal - Bio Text</div>
+      <div style="background: #333; padding: 2rem;">
+        <p style="font-size: 1.875rem; font-weight: 500; color: #ffffff; line-height: 1.6;">With over 40 years of experience in the optics industry, Ramin brings exceptional expertise in design, manufacturing, and application of advanced optical components.</p>
+      </div>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Size:</span>
+          <span class="sg-spec-value">1.875rem (30px)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Font Weight:</span>
+          <span class="sg-spec-value">500 (Medium)</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Line Height:</span>
+          <span class="sg-spec-value">1.6</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Color:</span>
+          <span class="sg-spec-value">#ffffff</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# Color Palette Section #}
+  <section class="sg-section">
+    <h2 class="sg-section-title">Color Palette</h2>
+
+    <h3 style="margin-bottom: 1.5rem; color: #666;">Brand Colors</h3>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #51F4EF;"></div>
+        <div class="color-info">
+          <div class="color-name">Cyan / Teal</div>
+          <div class="color-hex">#51F4EF</div>
+          <div class="color-usage">Used for: Hero feature headings, navigation active dot, accent highlights</div>
+        </div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #4B80EA;"></div>
+        <div class="color-info">
+          <div class="color-name">Blue</div>
+          <div class="color-hex">#4B80EA</div>
+          <div class="color-usage">Used for: Spotlight section heading, team section headings, team member names</div>
+        </div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #F88015;"></div>
+        <div class="color-info">
+          <div class="color-name">Orange</div>
+          <div class="color-hex">#F88015</div>
+          <div class="color-usage">Used for: "Our Story" section heading and dot</div>
+        </div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #A105E2;"></div>
+        <div class="color-info">
+          <div class="color-name">Purple</div>
+          <div class="color-hex">#A105E2</div>
+          <div class="color-usage">Used for: "Our Facility" section heading and dot</div>
+        </div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #007AFF;"></div>
+        <div class="color-info">
+          <div class="color-name">Accent Blue</div>
+          <div class="color-hex">#007AFF</div>
+          <div class="color-usage">Used for: Link hover states, interactive elements</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin: 3rem 0 1.5rem; color: #666;">Neutral Colors</h3>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #000000;"></div>
+        <div class="color-info">
+          <div class="color-name">Black (Primary)</div>
+          <div class="color-hex">#000000</div>
+          <div class="color-usage">Used for: Primary text, hero content section background, team section background</div>
+        </div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #1a1a1a; border: 1px solid #ccc;"></div>
+        <div class="color-info">
+          <div class="color-name">Dark Gray (Secondary)</div>
+          <div class="color-hex">#1a1a1a</div>
+          <div class="color-usage">Used for: Secondary backgrounds</div>
+        </div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #2a2a2a; border: 1px solid #ccc;"></div>
+        <div class="color-info">
+          <div class="color-name">Gray</div>
+          <div class="color-hex">#2a2a2a</div>
+          <div class="color-usage">Used for: Backgrounds, team modal image background</div>
+        </div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #333333; border: 1px solid #ccc;"></div>
+        <div class="color-info">
+          <div class="color-name">Text Dark</div>
+          <div class="color-hex">#333333</div>
+          <div class="color-usage">Used for: Primary body text, paragraphs</div>
+        </div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #4D4D4D; border: 1px solid #ccc;"></div>
+        <div class="color-info">
+          <div class="color-name">Medium Gray</div>
+          <div class="color-hex">#4D4D4D</div>
+          <div class="color-usage">Used for: Spotlight section background</div>
+        </div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #666666; border: 1px solid #ccc;"></div>
+        <div class="color-info">
+          <div class="color-name">Text Light</div>
+          <div class="color-hex">#666666</div>
+          <div class="color-usage">Used for: Secondary text, captions</div>
+        </div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #ACA18F; border: 1px solid #ccc;"></div>
+        <div class="color-info">
+          <div class="color-name">Beige</div>
+          <div class="color-hex">#ACA18F</div>
+          <div class="color-usage">Used for: Modal close button</div>
+        </div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #e0e0e0; border: 1px solid #ccc;"></div>
+        <div class="color-info">
+          <div class="color-name">Border Color</div>
+          <div class="color-hex">#e0e0e0</div>
+          <div class="color-usage">Used for: Borders, dividers</div>
+        </div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #f5f5f5; border: 1px solid #ccc;"></div>
+        <div class="color-info">
+          <div class="color-name">Light Background</div>
+          <div class="color-hex">#f5f5f5</div>
+          <div class="color-usage">Used for: Alternate section backgrounds</div>
+        </div>
+      </div>
+
+      <div class="color-swatch">
+        <div class="color-preview" style="background-color: #ffffff; border: 1px solid #ccc;"></div>
+        <div class="color-info">
+          <div class="color-name">White</div>
+          <div class="color-hex">#ffffff</div>
+          <div class="color-usage">Used for: Main background, text on dark backgrounds</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# Spacing Section #}
+  <section class="sg-section">
+    <h2 class="sg-section-title">Spacing Scale</h2>
+
+    <div class="spacing-grid">
+      <div class="spacing-item">
+        <span class="spacing-label">--spacing-xs (0.5rem)</span>
+        <div class="spacing-visual" style="width: 0.5rem;"></div>
+        <span>8px</span>
+      </div>
+
+      <div class="spacing-item">
+        <span class="spacing-label">--spacing-sm (1rem)</span>
+        <div class="spacing-visual" style="width: 1rem;"></div>
+        <span>16px</span>
+      </div>
+
+      <div class="spacing-item">
+        <span class="spacing-label">--spacing-md (2rem)</span>
+        <div class="spacing-visual" style="width: 2rem;"></div>
+        <span>32px</span>
+      </div>
+
+      <div class="spacing-item">
+        <span class="spacing-label">--spacing-lg (3rem)</span>
+        <div class="spacing-visual" style="width: 3rem;"></div>
+        <span>48px</span>
+      </div>
+
+      <div class="spacing-item">
+        <span class="spacing-label">--spacing-xl (4rem)</span>
+        <div class="spacing-visual" style="width: 4rem;"></div>
+        <span>64px</span>
+      </div>
+
+      <div class="spacing-item">
+        <span class="spacing-label">--spacing-xxl (6rem)</span>
+        <div class="spacing-visual" style="width: 6rem;"></div>
+        <span>96px</span>
+      </div>
+    </div>
+  </section>
+
+  {# Layout Section #}
+  <section class="sg-section">
+    <h2 class="sg-section-title">Layout</h2>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Container</div>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Max Width:</span>
+          <span class="sg-spec-value">1200px</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Padding:</span>
+          <span class="sg-spec-value">0 1.5rem (24px)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Transitions</div>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Base Transition:</span>
+          <span class="sg-spec-value">0.3s ease</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# Font Weights Section #}
+  <section class="sg-section">
+    <h2 class="sg-section-title">Font Weights</h2>
+
+    <div class="sg-subsection">
+      <div style="display: grid; gap: 1rem; font-size: 1.25rem;">
+        <div style="font-weight: 300;">Light (300) - The quick brown fox jumps over the lazy dog</div>
+        <div style="font-weight: 400;">Regular (400) - The quick brown fox jumps over the lazy dog</div>
+        <div style="font-weight: 500;">Medium (500) - The quick brown fox jumps over the lazy dog</div>
+        <div style="font-weight: 600;">Semibold (600) - The quick brown fox jumps over the lazy dog</div>
+        <div style="font-weight: 700;">Bold (700) - The quick brown fox jumps over the lazy dog</div>
+      </div>
+    </div>
+  </section>
+
+  {# Component Examples #}
+  <section class="sg-section">
+    <h2 class="sg-section-title">UI Components</h2>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Navigation Dot (Active State)</div>
+      <div style="position: relative; padding: 2rem; text-align: center;">
+        <span style="display: inline-block; width: 12px; height: 12px; background-color: #51F4EF; border-radius: 50%;"></span>
+      </div>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Size:</span>
+          <span class="sg-spec-value">12px × 12px</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Color:</span>
+          <span class="sg-spec-value">#51F4EF</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Position:</span>
+          <span class="sg-spec-value">top: -12px from link</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-subsection">
+      <div class="sg-label">Section Heading Dot</div>
+      <div style="position: relative; padding: 2rem;">
+        <span style="display: inline-block; width: 16px; height: 16px; background-color: #4B80EA; border-radius: 50%;"></span>
+        <span style="display: inline-block; width: 16px; height: 16px; background-color: #F88015; border-radius: 50%; margin-left: 1rem;"></span>
+        <span style="display: inline-block; width: 16px; height: 16px; background-color: #A105E2; border-radius: 50%; margin-left: 1rem;"></span>
+      </div>
+      <div class="sg-specs">
+        <div class="sg-spec">
+          <span class="sg-spec-label">Size:</span>
+          <span class="sg-spec-value">16px × 16px</span>
+        </div>
+        <div class="sg-spec">
+          <span class="sg-spec-label">Position:</span>
+          <span class="sg-spec-value">left: 0, padding-left: 2rem on heading</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

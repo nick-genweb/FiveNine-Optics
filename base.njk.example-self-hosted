@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or "FiveNine Optics" }}</title>
+
+  {# SELF-HOSTED FONTS VERSION #}
+  {# Use this if you have purchased web font license and have font files in src/assets/fonts/ #}
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+
+  {# ORIGINAL: Adobe Fonts CDN (comment out the line below if using self-hosted) #}
+  {# <link rel="stylesheet" href="https://use.typekit.net/PROJECT_ID.css"> #}
+
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  {% include "header.njk" %}
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.njk" %}
+
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
