@@ -73,6 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
       slidesPerView: 'auto',
       spaceBetween: 10,
       centeredSlides: false,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+        reverseDirection: false,
+      },
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',

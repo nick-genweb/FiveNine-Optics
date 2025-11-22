@@ -21,7 +21,7 @@
   --color-secondary: #1a1a1a;
   --color-gray: #2a2a2a;
   --color-gray-light: #3a3a3a;
-  --color-accent: #007AFF;
+  --color-accent: #4B80EA;
   --color-text: #333333;
   --color-text-light: #666666;
   --color-text-white: #ffffff;
@@ -145,7 +145,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 2.1875rem 0; /* 35px (50px × 0.70) */
 }
 
 .logo a {
@@ -245,6 +245,7 @@ p {
   pointer-events: none;
   display: flex;
   flex-direction: column;
+  gap: 0;
 }
 
 /* Create an invisible bridge between the link and dropdown */
@@ -267,15 +268,17 @@ p {
 
 .nav-dropdown li {
   padding: 0;
+  margin: 0;
 }
 
 .nav-dropdown a {
   display: block;
-  padding: 5px 1.25rem;
-  font-size: 0.7875rem;
-  font-weight: var(--font-medium);
-  letter-spacing: 0.03em;
-  text-transform: none;
+  padding: 0.3125rem 1.25rem; /* 5px top/bottom = 10px total spacing */
+  font-size: 0.8922rem; /* 14.28px (20.3928px × 0.70) - matches main nav */
+  font-weight: var(--font-semibold); /* matches main nav */
+  letter-spacing: 0.05em; /* matches main nav */
+  text-transform: uppercase; /* matches main nav */
+  line-height: 1;
   color: var(--color-text);
   transition: color var(--transition-base);
 }
