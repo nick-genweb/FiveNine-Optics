@@ -811,6 +811,7 @@ p {
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: var(--spacing-xl);
+  margin-top: 30px;
   position: relative;
 }
 
@@ -858,7 +859,7 @@ p {
   position: absolute;
   right: 0;
   top: 0;
-  width: 37.5%; /* Reduced by 25% from 50% */
+  width: 31.875%; /* Reduced by 15% from 37.5% */
   height: auto;
   z-index: 0;
   overflow: visible;
