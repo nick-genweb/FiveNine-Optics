@@ -858,7 +858,7 @@ p {
   position: absolute;
   right: 0;
   top: 0;
-  width: auto;
+  width: 50%;
   height: auto;
   z-index: 0;
   overflow: visible;
@@ -866,9 +866,10 @@ p {
 
 .team-image-desktop img {
   display: block;
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: none;
+  object-fit: cover;
 }
 
 .team-grid-wrapper {
