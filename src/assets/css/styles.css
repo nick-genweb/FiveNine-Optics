@@ -134,7 +134,7 @@ p {
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding: 0 calc(var(--container-padding) * 2.5);
 }
 
 /* Header
@@ -160,7 +160,7 @@ p {
 }
 
 .logo img {
-  height: 40px;
+  height: 80px;
   width: auto;
   display: block;
 }
@@ -369,12 +369,12 @@ p {
 .hero-content-section {
   background-color: var(--color-bg-dark);
   color: var(--color-text-white);
-  padding: var(--spacing-xxl) 0;
+  padding: var(--spacing-xxl) 0 calc(var(--spacing-xxl) / 2);
   text-align: center;
 }
 
 .hero-main-text {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: 2rem; /* Half of spacing-xl (4rem / 2 = 2rem) */
 }
 
 .hero-main-text h1 {
@@ -389,7 +389,7 @@ p {
   font-size: 2.4063rem; /* 38.5px (55px × 0.70) */
   font-weight: var(--font-medium);
   line-height: 1.2; /* 66px leading in AI */
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 0;
   color: var(--color-text-white);
 }
 
@@ -397,13 +397,14 @@ p {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-xl);
-  max-width: 1000px;
-  margin: 0 auto var(--spacing-xl);
+  max-width: 100%;
+  margin: 0 0 var(--spacing-xl);
   justify-items: center;
 }
 
 .hero-feature {
-  text-align: left;
+  text-align: center;
+  padding: 0;
 }
 
 .hero-feature h3 {
@@ -411,8 +412,9 @@ p {
   font-weight: var(--font-bold);
   line-height: 1.333; /* 36px leading in AI */
   color: #51F4EF;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: 0.5rem; /* Reduced from var(--spacing-sm) which is 1rem */
   letter-spacing: 0.05em;
+  text-align: center;
 }
 
 .hero-feature p {
@@ -420,6 +422,8 @@ p {
   font-weight: var(--font-medium);
   line-height: 1.28125; /* Same as paragraph text */
   color: var(--color-text-white-muted);
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .hero-compliance {
@@ -792,7 +796,7 @@ p {
 /* Team Section
    ========================================================================== */
 .team {
-  padding: 106.4px 0 170.1px 0; /* 152px × 0.70, 243px × 0.70 */
+  padding: calc(110px * 0.70) 0; /* Same as other sections */
   background-color: #000000;
   position: relative;
   overflow: hidden;
@@ -823,7 +827,7 @@ p {
   font-size: 1.1813rem; /* 18.9px (27px × 0.70) */
   line-height: 1.333; /* 36px leading in AI */
   color: #4B80EA;
-  margin-bottom: 74.9px; /* 107px × 0.70 */
+  margin-bottom: calc(37px * 0.70); /* Match other sections */
   text-align: left;
   position: relative;
   padding-left: 3rem;
@@ -872,13 +876,14 @@ p {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
+  margin-top: 400px;
 }
 
 .team-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-lg);
-  margin-top: 263.2px; /* 376px × 0.70 */
+  margin-top: 0;
   position: relative;
   z-index: 2;
 }
@@ -886,6 +891,7 @@ p {
 .team-member {
   text-align: center;
   position: relative;
+  padding: 10px;
 }
 
 .team-member-photo {
@@ -895,8 +901,9 @@ p {
   margin: 0 auto;
   cursor: pointer;
   border-radius: 50%;
-  transition: all var(--transition-base);
-  overflow: hidden;
+  outline: 0px solid transparent;
+  outline-offset: 0px;
+  transition: outline-color var(--transition-base), outline-width 0s;
 }
 
 .team-member-photo::before {
@@ -920,14 +927,14 @@ p {
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  transition: all var(--transition-base);
   position: relative;
+  overflow: hidden;
 }
 
-/* Hover state: add thicker blue border to hovered photo */
+/* Hover state: add thicker blue outline to hovered photo */
 .team-member-photo:hover {
-  border: 10px solid #4B80EA;
-  box-sizing: border-box;
+  outline-width: 10px;
+  outline-color: #4B80EA;
 }
 
 /* Hover state: add white overlay to other photos when one is hovered */
