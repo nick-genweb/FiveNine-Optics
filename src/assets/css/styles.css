@@ -656,13 +656,7 @@ p {
 }
 
 /* Responsive image heights */
-@media (max-width: 1024px) {
-  .facilitySwiper .swiper-slide img {
-    height: 500px;
-  }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .facilitySwiper .swiper-slide img {
     height: 400px;
   }
@@ -1047,11 +1041,18 @@ p {
 .team-modal-content {
   position: relative;
   background-color: #333333;
-  width: 1104px;
-  height: 600px;
+  width: calc(100% - 10px);
+  max-width: 650px;
+  margin: 0 5px;
+  height: auto;
+  max-height: 95vh;
   overflow: hidden;
   z-index: 10000;
+  display: flex;
+  flex-direction: column;
 }
+
+/* Desktop modal layout - only above 900px */
 
 .team-modal-close {
   position: absolute;
@@ -1083,34 +1084,43 @@ p {
 
 .team-modal-inner {
   display: flex;
+  flex-direction: column;
   height: 100%;
+  max-height: 95vh;
+  overflow: hidden;
 }
 
 .team-modal-image {
-  flex: 0 0 472.5px;
-  width: 472.5px;
+  flex: 0 0 auto;
+  width: 100%;
+  height: 400px;
+  max-height: 400px;
   background-color: #2a2a2a;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   position: relative;
+  order: 1;
 }
 
 .team-modal-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
 }
 
 .team-modal-info {
-  flex: 1;
-  padding: 60px;
+  flex: 1 1 auto;
+  padding: 20px 15px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  order: 2;
 }
 
 .team-modal-header {
@@ -1126,10 +1136,62 @@ p {
   border-radius: 50%;
   flex-shrink: 0;
   position: absolute;
-  left: 472.5px;
-  top: 60px;
-  transform: translateX(-50%) translateY(0.6rem);
+  left: 50%;
+  top: 400px;
+  transform: translateX(-50%) translateY(-50%);
   z-index: 10;
+}
+
+/* Desktop modal layout - only above 900px */
+@media (min-width: 901px) {
+  .team-modal-content {
+    width: 90vw;
+    max-width: 1200px;
+    margin: 0;
+    display: inline-flex;
+    flex-direction: row;
+    max-height: 85vh;
+  }
+
+  .team-modal-inner {
+    flex-direction: row;
+    width: 100%;
+    display: flex;
+    max-height: 85vh;
+  }
+
+  .team-modal-image {
+    flex: 0 0 480px;
+    width: 480px;
+    height: 100%;
+    max-height: 85vh;
+    order: 0;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .team-modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top center;
+    display: block;
+  }
+
+  .team-modal-info {
+    flex: 1;
+    padding: 50px 60px;
+    order: 0;
+    overflow-y: auto;
+    min-width: 0;
+    height: 100%;
+  }
+
+  .team-modal-dot {
+    left: 480px;
+    top: 50px;
+    transform: translateX(-50%) translateY(0.6rem);
+  }
 }
 
 .team-modal-header h2 {
@@ -1269,13 +1331,15 @@ p {
 }
 
 /* Products Page Responsive */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .products-hero-content {
     flex-direction: column;
+    gap: var(--spacing-md); /* Reduce gap between image and text on mobile */
   }
 
   .products-hero-text {
     max-width: 100%;
+    padding-top: 0; /* Remove desktop padding-top on mobile */
   }
 
   .products-hero-image {
@@ -1283,8 +1347,27 @@ p {
     order: -1;
   }
 
+  .products-hero-image img {
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
+  }
+
   .products-columns {
     grid-template-columns: 1fr;
+    gap: var(--spacing-md); /* Reduce gap between columns on mobile */
+  }
+
+  /* Match home page section heading sizes */
+  .products-heading,
+  .products-column-heading {
+    font-size: 0.875rem !important; /* 14px - match home page */
+  }
+
+  /* Adjust hero spacing to match home page */
+  .products-hero {
+    padding-top: 43.4px;
+    padding-bottom: var(--spacing-md); /* Reduce bottom padding on mobile */
   }
 }
 
@@ -1374,7 +1457,7 @@ p {
 
 /* Responsive Design
    ========================================================================== */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   /* Mobile Navigation */
   .nav-toggle {
     display: flex;
@@ -1516,10 +1599,22 @@ p {
     width: 200px;
     height: 200px;
     border: 4px solid #4B80EA !important;
+    pointer-events: auto !important;
   }
 
   .team-member-photo::before {
     display: none !important;
+    opacity: 0 !important;
+  }
+
+  /* Disable hover effects on mobile */
+  .team-member-photo:hover {
+    outline-width: 0 !important;
+    outline-color: transparent !important;
+  }
+
+  .team-grid-wrapper:has(.team-member-photo:hover) .team-member-photo::before {
+    opacity: 0 !important;
   }
 
   .team-member-info-desktop {
@@ -1528,6 +1623,78 @@ p {
 
   .team-member-info-mobile {
     display: block;
+  }
+
+  /* Typography improvements for readability */
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+
+  /* Section Headings - Uniform size */
+  .spotlight-heading,
+  .our-story-heading,
+  .team-heading,
+  .our-facility-heading {
+    font-size: 0.875rem !important;
+  }
+
+  /* Section paragraph text - Consistent styling */
+  .spotlight-text,
+  .our-story-intro,
+  .our-story-content p,
+  .our-facility-content p {
+    font-size: 1.125rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Our Story Section - Spacing adjustments */
+  .our-story {
+    padding-top: calc(62px * 0.70);
+  }
+
+  .our-story-heading {
+    margin-bottom: calc(37px * 0.70);
+  }
+
+  .our-story-intro {
+    margin-bottom: calc(112px * 0.70 * 0.25);
+  }
+
+  .industries-grid {
+    margin-top: calc(37px * 0.70 * 0.25);
+    margin-bottom: calc(37px * 0.70 * 0.25);
+  }
+
+  .our-story-content {
+    margin-top: calc(37px * 0.70 * 0.25);
+  }
+
+  /* Our Team Section - Spacing adjustments */
+  .team {
+    padding-top: calc(62px * 0.70);
+  }
+
+  .team-content {
+    margin-top: 0;
+    margin-bottom: calc(var(--spacing-xl) * 0.25);
+  }
+
+  .team-grid-wrapper {
+    margin-top: calc(220px * 0.25);
+  }
+
+  /* Our Facility Section - Spacing adjustments */
+  .our-facility {
+    padding-top: calc(62px * 0.70);
   }
 
   /* About Section */
@@ -1555,5 +1722,185 @@ p {
 
   .product-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Reduce logo and header by 20% */
+  .logo img {
+    height: 64px; /* 80px * 0.8 = 64px */
+  }
+
+  .header-content {
+    padding: 1.75rem 0; /* 2.1875rem * 0.8 = 1.75rem (35px * 0.8 = 28px) */
+  }
+
+  /* Remove colored dots from mobile hamburger menu */
+  .main-nav a::before {
+    display: none !important;
+  }
+
+  /* Increase mobile typography for readability */
+  h2 {
+    font-size: 1.75rem; /* Increased from 1.3125rem for mobile */
+  }
+
+  h3 {
+    font-size: 1.75rem; /* Increased from 1.3125rem for mobile */
+  }
+
+  p {
+    font-size: 1.125rem; /* Increased from 1.4rem (which was too large) for mobile readability */
+    line-height: 1.5;
+  }
+
+  /* Section Headings - All uniform size (half of previous Our Team heading) */
+  .spotlight-heading,
+  .our-story-heading,
+  .team-heading,
+  .our-facility-heading {
+    font-size: 0.875rem !important; /* Half of 1.75rem */
+  }
+
+  /* Section paragraph text - Match Our Story style across all sections */
+  .spotlight-text,
+  .our-story-intro,
+  .our-story-content p,
+  .our-facility-content p {
+    font-size: 1.125rem !important; /* Match Our Story section */
+    line-height: 1.5 !important;
+  }
+
+  /* Our Story Section - Mobile specific spacing */
+  .our-story {
+    padding-top: calc(62px * 0.70); /* Match 5.9 Spotlight top padding */
+  }
+
+  .our-story-heading {
+    margin-bottom: calc(37px * 0.70); /* Keep same as desktop */
+  }
+
+  .our-story-intro {
+    margin-bottom: calc(112px * 0.70 * 0.25); /* Reduced by 75% */
+  }
+
+  .industries-grid {
+    margin-top: calc(37px * 0.70 * 0.25); /* Reduced by 75% */
+    margin-bottom: calc(37px * 0.70 * 0.25); /* Reduced by 75% */
+  }
+
+  .our-story-content {
+    margin-top: calc(37px * 0.70 * 0.25); /* Reduced by 75% */
+  }
+
+  /* Our Team Section - Mobile specific spacing */
+  .team {
+    padding-top: calc(62px * 0.70); /* Match 5.9 Spotlight top padding */
+  }
+
+  .team-content {
+    margin-top: 0; /* Remove extra top margin */
+    margin-bottom: calc(var(--spacing-xl) * 0.25); /* Reduce by 75% */
+  }
+
+  .team-description {
+    font-size: 1.5rem; /* Adjusted for mobile readability */
+  }
+
+  .team-grid-wrapper {
+    margin-top: calc(220px * 0.25); /* Reduce by 75% */
+  }
+
+  /* Our Facility Section - Mobile specific spacing */
+  .our-facility {
+    padding-top: calc(62px * 0.70); /* Match other sections */
+  }
+
+  /* Remove carousel navigation arrows on mobile */
+  .facilitySwiper .swiper-button-prev,
+  .facilitySwiper .swiper-button-next {
+    display: none !important;
+  }
+
+  /* Team Modal - Mobile Layout */
+  .team-modal-content {
+    width: calc(100% - 10px);
+    height: auto;
+    max-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 5px;
+  }
+
+  .team-modal-inner {
+    flex-direction: column !important;
+    height: 100%;
+    max-height: 95vh;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .team-modal-image {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    height: 250px !important;
+    max-height: 250px !important;
+    min-height: 200px;
+    order: 1 !important;
+  }
+
+  /* Remove any white overlay from modal image */
+  .team-modal-image::before,
+  .team-modal-image::after {
+    display: none !important;
+    opacity: 0 !important;
+  }
+
+  .team-modal-image img {
+    opacity: 1 !important;
+  }
+
+  .team-modal-info {
+    flex: 1 1 auto;
+    order: 2;
+    padding: 20px 15px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    min-height: 0;
+  }
+
+  .team-modal-dot {
+    left: 15px;
+    top: 250px;
+    transform: translateX(0) translateY(-50%);
+  }
+
+  .team-modal-close {
+    top: 10px;
+    right: 10px;
+    font-size: 3rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  .team-modal-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .team-modal-header p {
+    font-size: 1.2rem;
+  }
+
+  .team-modal-bio {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+/* Adjust dot position for larger mobile/tablet screens with 400px image */
+@media (min-width: 481px) and (max-width: 900px) {
+  .team-modal-dot {
+    left: 15px;
+    top: 400px;
+    transform: translateX(0) translateY(-50%);
   }
 }
