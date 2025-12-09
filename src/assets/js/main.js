@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'ZACH GERIG': 'With more than 25 years of experience in IBS optical coatings, Zach has built a reputation for tackling some of the industry\'s most formidable challenges. His dedication to continuous improvement has led to the development of advanced tools and processes that push the boundaries of what\'s possible in optical coating performance. A two-time first-place winner in the international OIC Manufacturing Competition, Zach is recognized for his technical excellence and innovation. He holds a BS in Mechanical Engineering with a Minor in Physics from the Colorado School of Mines.',
     'HOWARD CHAMPOUX': 'Howard has been at the forefront of IBS coating engineering for more than 25 years. His expertise spans the full product lifecycle—from interpreting customer requirements to delivering high-performance solutions. With a deep understanding of both the fundamental physics and practical applications of our products, Howard serves as a trusted technical liaison for our most demanding clients. He earned his BS in Metallurgy from the Colorado School of Mines, an MS in Materials Science from Cornell University, and a Graduate Certificate in Optical Science from the University of Arizona.',
     'EVAN PRAST': 'Evan leads Coating, Fabrication, Purchasing, Quality, and Logistics, bringing over 20 years of optics manufacturing experience. He combines deep operational expertise with a passion for building and leading collaborative, high-performing teams. Before joining FiveNine Optics, Evan held engineering and operations roles at L3-Tinsley and Excelitas. He holds a BS in Optical Science and Engineering and an MS in Applied Science Engineering from UC Davis.',
-    'ERIK BALTZ': 'Erik brings more than 30 years of IBS coating experience, distinguished by a unique blend of curiosity, tenacity, and good humor. He is highly regarded for his persistence in executing complex coating projects and advancing equipment capabilities, all while maintaining a positive and collaborative spirit. Prior to joining FiveNine Optics, Erik held thin-film engineering and R&D roles at Research Electro-Optics. He earned a BS in Mechanical Engineering from the University of Arkansas and an MS in Engineering Management from the University of Colorado Boulder.'
+    'ERIC BALTZ': 'Eric brings more than 30 years of IBS coating experience, distinguished by a unique blend of curiosity, tenacity, and good humor. He is highly regarded for his persistence in executing complex coating projects and advancing equipment capabilities, all while maintaining a positive and collaborative spirit. Prior to joining FiveNine Optics, Eric held thin-film engineering and R&D roles at Research Electro-Optics. He earned a BS in Mechanical Engineering from the University of Arkansas and an MS in Engineering Management from the University of Colorado Boulder.'
   };
 
   // Open modal when clicking on team member photo
@@ -196,5 +196,28 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.classList.remove('active');
       document.body.style.overflow = '';
     }
+  });
+
+  // Job accordion functionality
+  const jobToggles = document.querySelectorAll('.job-toggle');
+
+  jobToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const jobPosition = toggle.parentElement;
+      const jobContent = jobPosition.querySelector('.job-content');
+      const jobIcon = toggle.querySelector('.job-icon');
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+      // Toggle the accordion
+      if (isExpanded) {
+        toggle.setAttribute('aria-expanded', 'false');
+        jobContent.classList.remove('active');
+        jobIcon.textContent = '+';
+      } else {
+        toggle.setAttribute('aria-expanded', 'true');
+        jobContent.classList.add('active');
+        jobIcon.textContent = '−';
+      }
+    });
   });
 });

@@ -5,16 +5,35 @@
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
-    "clean": "rm -rf _site"
+    "clean": "rm -rf _site",
+    "test": "jest --config tests/jest.config.js && node tests/utils/report-generator.js",
+    "test:watch": "jest --config tests/jest.config.js --watch",
+    "test:seo": "jest --config tests/jest.config.js tests/agents/seo-validator.test.js",
+    "test:visual": "jest --config tests/jest.config.js tests/agents/visual-regression.test.js",
+    "test:html": "jest --config tests/jest.config.js tests/agents/html-best-practices.test.js",
+    "test:responsive": "jest --config tests/jest.config.js tests/agents/responsive-design.test.js",
+    "test:baseline": "node tests/utils/generate-baseline.js",
+    "test:fix": "node tests/fixes/apply-fixes.js",
+    "test:fix-seo": "node tests/fixes/seo-fixer.js",
+    "test:fix-html": "node tests/fixes/html-fixer.js",
+    "test:report": "node tests/utils/report-generator.js && open tests/reports/index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2"
+    "@11ty/eleventy": "^3.1.2",
+    "chalk": "^5.6.2",
+    "cheerio": "^1.1.2",
+    "jest": "^29.7.0",
+    "jest-html-reporter": "^4.3.0",
+    "jest-puppeteer": "^11.0.0",
+    "pixelmatch": "^7.1.0",
+    "pngjs": "^7.0.0"
   },
   "dependencies": {
+    "puppeteer": "^24.32.0",
     "swiper": "^12.0.3"
   }
 }

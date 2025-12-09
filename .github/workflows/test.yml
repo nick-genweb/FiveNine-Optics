@@ -1,0 +1,139 @@
+name: FiveNine Optics Quality Assurance
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Eleventy site
+        run: npm run build
+
+      - name: Run SEO Validator
+        run: npm run test:seo
+        continue-on-error: true
+
+      - name: Run HTML Best Practices Validator
+        run: npm run test:html
+        continue-on-error: true
+
+      - name: Run Responsive Design Validator
+        run: npm run test:responsive
+        continue-on-error: true
+
+      - name: Run Visual Regression Tests (if baseline exists)
+        run: npm run test:visual
+        continue-on-error: true
+
+      - name: Generate Test Report
+        if: always()
+        run: node tests/utils/report-generator.js
+
+      - name: Upload Test Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: |
+            tests/reports/
+            !tests/reports/**/*.backup
+          retention-days: 30
+
+      - name: Upload Screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: tests/reports/actual-screenshots/
+          retention-days: 7
+
+      - name: Comment PR with Test Results
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            // Read SEO report summary
+            const seoReports = fs.readdirSync('tests/reports/seo-reports')
+              .filter(f => f.endsWith('.json'))
+              .map(f => JSON.parse(fs.readFileSync(path.join('tests/reports/seo-reports', f), 'utf-8')));
+
+            const htmlReports = fs.readdirSync('tests/reports/html-reports')
+              .filter(f => f.endsWith('.json'))
+              .map(f => JSON.parse(fs.readFileSync(path.join('tests/reports/html-reports', f), 'utf-8')));
+
+            const seoSummary = {
+              total: seoReports.length,
+              passed: seoReports.filter(r => r.passed).length,
+              errors: seoReports.reduce((sum, r) => sum + r.issues.filter(i => i.severity === 'error').length, 0),
+              warnings: seoReports.reduce((sum, r) => sum + r.issues.filter(i => i.severity === 'warning').length, 0)
+            };
+
+            const htmlSummary = {
+              total: htmlReports.length,
+              passed: htmlReports.filter(r => r.passed).length,
+              errors: htmlReports.reduce((sum, r) => sum + (r.summary?.errors || 0), 0),
+              warnings: htmlReports.reduce((sum, r) => sum + (r.summary?.warnings || 0), 0)
+            };
+
+            const body = `## 🤖 Automated Test Results
+
+            ### SEO Validation
+            - **Tests:** ${seoSummary.passed}/${seoSummary.total} passed
+            - **Errors:** ${seoSummary.errors}
+            - **Warnings:** ${seoSummary.warnings}
+
+            ### HTML Best Practices
+            - **Tests:** ${htmlSummary.passed}/${htmlSummary.total} passed
+            - **Errors:** ${htmlSummary.errors}
+            - **Warnings:** ${htmlSummary.warnings}
+
+            ### 📊 Detailed Reports
+            View the complete test reports in the workflow artifacts.
+
+            ${seoSummary.errors + htmlSummary.errors > 0 ? '⚠️ **Action Required:** Please fix the errors before merging.' : '✅ All quality checks passed!'}
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+      - name: Fail if critical issues found
+        run: |
+          # Check for critical SEO or HTML errors
+          SEO_ERRORS=$(find tests/reports/seo-reports -name "*.json" -exec jq -r '.issues[] | select(.severity=="error") | .message' {} \; 2>/dev/null | wc -l || echo 0)
+          HTML_ERRORS=$(find tests/reports/html-reports -name "*.json" -exec jq -r '.summary.errors' {} \; 2>/dev/null | awk '{s+=$1} END {print s}' || echo 0)
+
+          TOTAL_ERRORS=$((SEO_ERRORS + HTML_ERRORS))
+
+          if [ $TOTAL_ERRORS -gt 0 ]; then
+            echo "❌ Found $TOTAL_ERRORS critical error(s)"
+            echo "SEO Errors: $SEO_ERRORS"
+            echo "HTML Errors: $HTML_ERRORS"
+            exit 1
+          else
+            echo "✅ No critical errors found"
+          fi
