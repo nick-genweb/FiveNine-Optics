@@ -1,5 +1,5 @@
 # Eleventy
-_site/
+# _site/ - Commenting out to commit built files for Kinsta deployment
 
 # Dependencies
 node_modules/
