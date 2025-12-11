@@ -442,7 +442,7 @@ p {
 }
 
 .spotlight-heading {
-  font-size: clamp(0.7875rem, 2vw, 1.1813rem); /* 18.9px (27px × 0.70) */
+  font-size: 1.3rem;
   font-weight: var(--font-bold);
   line-height: 1.333; /* 36px leading in AI */
   color: #4B80EA;
@@ -506,7 +506,7 @@ p {
 }
 
 .our-story-heading {
-  font-size: clamp(0.7875rem, 2vw, 1.1813rem); /* 18.9px (27px × 0.70) */
+  font-size: 1.3rem;
   font-weight: var(--font-bold);
   line-height: 1.333; /* 36px leading in AI */
   color: #F88015;
@@ -587,7 +587,7 @@ p {
 }
 
 .our-facility-heading {
-  font-size: clamp(0.7875rem, 2vw, 1.1813rem); /* 18.9px (27px × 0.70) */
+  font-size: 1.3rem;
   font-weight: var(--font-bold);
   line-height: 1.333; /* 36px leading in AI */
   color: #A105E2;
@@ -819,7 +819,7 @@ p {
 .team-heading {
   font-family: var(--font-primary);
   font-weight: var(--font-bold);
-  font-size: 1.1813rem; /* 18.9px (27px × 0.70) */
+  font-size: 1.3rem;
   line-height: 1.333; /* 36px leading in AI */
   color: #4B80EA;
   margin-bottom: calc(37px * 0.70); /* Match other sections */
@@ -1244,7 +1244,7 @@ p {
 }
 
 .products-heading {
-  font-size: clamp(0.7875rem, 2vw, 1.1813rem); /* 18.9px (27px × 0.70) */
+  font-size: 1.3rem;
   font-weight: var(--font-bold);
   line-height: 1.333; /* 36px leading in AI */
   color: #4B80EA;
@@ -1299,7 +1299,7 @@ p {
 }
 
 .products-column-heading {
-  font-size: clamp(0.7875rem, 2vw, 1.1813rem); /* 18.9px (27px × 0.70) */
+  font-size: 1.3rem;
   font-weight: var(--font-bold);
   line-height: 1.333;
   color: #4B80EA;
@@ -1360,12 +1360,12 @@ p {
 
   /* Match home page section heading sizes */
   .products-column-heading {
-    font-size: 1.2rem !important; /* Match homepage section heading size */
+    font-size: 1.3rem !important; /* Match homepage section heading size */
   }
 
-  /* Hero heading remains smaller */
+  /* Hero heading */
   .products-heading {
-    font-size: 0.875rem !important; /* 14px - hero heading size */
+    font-size: 1.3rem !important;
   }
 
   /* Adjust hero spacing to match home page */
@@ -1651,7 +1651,7 @@ p {
   .resources-section-heading,
   .careers-subheading,
   .terms-heading {
-    font-size: 1.2rem !important;
+    font-size: 1.3rem !important;
   }
 
   /* Section paragraph text - Consistent styling */
@@ -1767,7 +1767,7 @@ p {
   .resources-section-heading,
   .careers-subheading,
   .terms-heading {
-    font-size: 1.2rem !important;
+    font-size: 1.3rem !important;
   }
 
   /* Section paragraph text - Match Our Story style across all sections */
@@ -1938,7 +1938,7 @@ p {
 }
 
 .markets-heading {
-  font-size: clamp(0.7875rem, 2vw, 1.1813rem);
+  font-size: 1.3rem;
   font-weight: var(--font-bold);
   line-height: 1.333;
   color: #A105E2;
@@ -2028,7 +2028,7 @@ p {
 }
 
 .market-card h2 {
-  font-size: clamp(0.7875rem, 2vw, 1.1813rem);
+  font-size: 1.3rem;
   font-weight: var(--font-bold);
   line-height: 1.333;
   color: #A105E2;
@@ -2080,7 +2080,7 @@ p {
   }
 
   .market-card h2 {
-    font-size: 1.2rem !important; /* Match homepage section heading size */
+    font-size: 1.3rem !important; /* Match homepage section heading size */
     margin-bottom: var(--spacing-sm);
   }
 
@@ -2096,7 +2096,7 @@ p {
   }
 
   .markets-heading {
-    font-size: 0.875rem !important;
+    font-size: 1.3rem !important;
   }
 
   .markets-hero {
@@ -2140,7 +2140,7 @@ p {
   }
 
   .contact-heading {
-    font-size: 0.875rem !important;
+    font-size: 1.3rem !important;
   }
 }
 
@@ -2194,7 +2194,7 @@ p {
   }
 
   .markets-heading {
-    font-size: 0.875rem !important;
+    font-size: 1.3rem !important;
   }
 
   .markets-hero {
@@ -2226,7 +2226,7 @@ p {
 }
 
 .resources-heading {
-  font-size: clamp(0.7875rem, 2vw, 1.1813rem);
+  font-size: 1.3rem;
   font-weight: var(--font-bold);
   line-height: 1.333;
   color: #F88015;
@@ -2274,7 +2274,7 @@ p {
 }
 
 .resources-section-heading {
-  font-size: clamp(0.7875rem, 2vw, 1.1813rem);
+  font-size: 1.3rem;
   font-weight: var(--font-bold);
   line-height: 1.333;
   color: #F88015;
@@ -2417,7 +2417,7 @@ p {
 }
 
 .careers-subheading {
-  font-size: clamp(0.7875rem, 2vw, 1.1813rem);
+  font-size: 1.3rem;
   font-weight: var(--font-bold);
   line-height: 1.333;
   color: #4B80EA;
@@ -2440,13 +2440,13 @@ p {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: 0.375rem var(--spacing-md);
   background-color: #4B80EA;
   color: var(--color-text-white);
   border: none;
   cursor: pointer;
   font-family: var(--font-primary);
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: var(--font-semibold);
   text-align: left;
   transition: background-color var(--transition-base);
@@ -2542,7 +2542,7 @@ p {
 }
 
 .terms-heading {
-  font-size: clamp(0.7875rem, 2vw, 1.1813rem);
+  font-size: 1.3rem;
   font-weight: var(--font-bold);
   line-height: 1.333;
   color: #51F4EF;
@@ -2588,7 +2588,7 @@ p {
   }
 
   .resources-heading {
-    font-size: 0.875rem !important;
+    font-size: 1.3rem !important;
   }
 
   .resources-hero {
@@ -2693,7 +2693,7 @@ p {
 }
 
 .contact-heading {
-  font-size: clamp(0.7875rem, 2vw, 1.1813rem);
+  font-size: 1.3rem;
   font-weight: var(--font-bold);
   line-height: 1.333;
   color: #E9BF39;
@@ -2858,7 +2858,7 @@ p {
   }
 
   .contact-heading {
-    font-size: 0.875rem !important;
+    font-size: 1.3rem !important;
   }
 
   .contact-form-container {
