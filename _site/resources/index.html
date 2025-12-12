@@ -12,9 +12,11 @@
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=1.0.1">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header class="site-header">
   <div class="container">
     <div class="header-content">
@@ -32,9 +34,9 @@
         </button>
         <ul class="nav-list">
           <li class="nav-item-with-dropdown">
-            <a href="/" class="nav-link-about">
+            <a href="/" class="nav-link-about" aria-haspopup="true" aria-expanded="false">
               ABOUT
-              <svg class="nav-caret" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="nav-caret" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
@@ -42,7 +44,15 @@
           </li>
           <li><a href="/products" class="nav-link-products">PRODUCTS</a></li>
           <li><a href="/markets" class="nav-link-markets">MARKETS</a></li>
-          <li><a href="/resources" class="nav-link-resources active">RESOURCES</a></li>
+          <li class="nav-item-with-dropdown">
+            <a href="/resources" class="nav-link-resources active" aria-haspopup="true" aria-expanded="false">
+              RESOURCES
+              <svg class="nav-caret" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <ul class="nav-dropdown"><li><a href="/resources#careers">Careers</a></li><li><a href="/resources#terms">Terms</a></li></ul>
+          </li>
           <li><a href="/contact" class="nav-link-contact">CONTACT</a></li>
         </ul>
       </nav>
@@ -51,7 +61,7 @@
 </header>
 
 
-  <main>
+  <main id="main-content">
     
 
 <section style="background-color: #000000; height: 50px;"></section>
@@ -63,9 +73,9 @@
 
 
 
-<section class="resources-careers">
+<section id="careers" class="resources-careers">
   <div class="container">
-    <h2 class="resources-section-heading careers-section-heading">CAREERS</h2>
+    <h1 class="resources-section-heading careers-section-heading">CAREERS</h1>
 
     <p class="careers-intro">
       At Five Nine Optics, we're passionate about precision, innovation, and craftsmanship. We specialize in high-performance optical coatings and cutting-edge thin film technology—and we're growing. If you're looking to be part of a dedicated team that values expertise, collaboration, and quality, we invite you to explore our current job openings below. Come help us push the boundaries of optical excellence.
@@ -75,11 +85,11 @@
 
     <div class="job-positions">
       <div class="job-position">
-        <button class="job-toggle" aria-expanded="false">
+        <button class="job-toggle" aria-expanded="false" aria-controls="job-content-1">
           <span class="job-title">Cleaning Technician</span>
           <span class="job-icon">+</span>
         </button>
-        <div class="job-content">
+        <div class="job-content" id="job-content-1">
           <div class="job-details">
             <h4>JOB DESCRIPTION:</h4>
             <p>We are currently looking to hire a qualified candidate to perform the following job duties:</p>
@@ -108,11 +118,11 @@
       </div>
 
       <div class="job-position">
-        <button class="job-toggle" aria-expanded="false">
+        <button class="job-toggle" aria-expanded="false" aria-controls="job-content-2">
           <span class="job-title">Applications Engineer/Scientist — Optical Coatings (IBS)</span>
           <span class="job-icon">+</span>
         </button>
-        <div class="job-content">
+        <div class="job-content" id="job-content-2">
           <div class="job-details">
             <p>Job description coming soon.</p>
           </div>
@@ -128,7 +138,7 @@
 </section>
 
 
-<section class="resources-terms">
+<section id="terms" class="resources-terms">
   <div class="container">
     <h2 class="resources-section-heading terms-section-heading">TERMS & CONDITIONS</h2>
 
@@ -160,14 +170,7 @@
   <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
-      <div class="footer-info">
-        <p class="footer-tagline">Experience Superior Optics</p>
-        <p class="footer-copyright">&copy; 2025 FiveNine Optics. All rights reserved.</p>
-      </div>
-      <div class="footer-contact">
-        <p>Contact us for more information</p>
-        <p><a href="mailto:info@fivenineoptics.com">info@fivenineoptics.com</a></p>
-      </div>
+      <p class="footer-copyright">&copy; 2025 FiveNine Optics. All rights reserved.</p>
     </div>
   </div>
 </footer>
@@ -176,6 +179,6 @@
   
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/main.js?v=1.0.1"></script>
 </body>
 </html>

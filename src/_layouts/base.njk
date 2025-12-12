@@ -12,12 +12,14 @@
   {# Swiper CSS #}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/styles.css?v={{ pkg.version }}">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   {% include "header.njk" %}
 
-  <main>
+  <main id="main-content">
     {{ content | safe }}
   </main>
 
@@ -26,6 +28,6 @@
   {# Swiper JS #}
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/main.js?v={{ pkg.version }}"></script>
 </body>
 </html>

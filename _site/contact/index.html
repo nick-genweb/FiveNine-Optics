@@ -12,9 +12,11 @@
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=1.0.1">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header class="site-header">
   <div class="container">
     <div class="header-content">
@@ -32,9 +34,9 @@
         </button>
         <ul class="nav-list">
           <li class="nav-item-with-dropdown">
-            <a href="/" class="nav-link-about">
+            <a href="/" class="nav-link-about" aria-haspopup="true" aria-expanded="false">
               ABOUT
-              <svg class="nav-caret" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="nav-caret" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
@@ -42,7 +44,15 @@
           </li>
           <li><a href="/products" class="nav-link-products">PRODUCTS</a></li>
           <li><a href="/markets" class="nav-link-markets">MARKETS</a></li>
-          <li><a href="/resources" class="nav-link-resources">RESOURCES</a></li>
+          <li class="nav-item-with-dropdown">
+            <a href="/resources" class="nav-link-resources" aria-haspopup="true" aria-expanded="false">
+              RESOURCES
+              <svg class="nav-caret" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <ul class="nav-dropdown"><li><a href="/resources#careers">Careers</a></li><li><a href="/resources#terms">Terms</a></li></ul>
+          </li>
           <li><a href="/contact" class="nav-link-contact active">CONTACT</a></li>
         </ul>
       </nav>
@@ -51,7 +61,7 @@
 </header>
 
 
-  <main>
+  <main id="main-content">
     
 
 <section class="contact-hero">
@@ -115,14 +125,7 @@
   <footer class="site-footer">
   <div class="container">
     <div class="footer-content">
-      <div class="footer-info">
-        <p class="footer-tagline">Experience Superior Optics</p>
-        <p class="footer-copyright">&copy; 2025 FiveNine Optics. All rights reserved.</p>
-      </div>
-      <div class="footer-contact">
-        <p>Contact us for more information</p>
-        <p><a href="mailto:info@fivenineoptics.com">info@fivenineoptics.com</a></p>
-      </div>
+      <p class="footer-copyright">&copy; 2025 FiveNine Optics. All rights reserved.</p>
     </div>
   </div>
 </footer>
@@ -131,6 +134,6 @@
   
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/main.js?v=1.0.1"></script>
 </body>
 </html>

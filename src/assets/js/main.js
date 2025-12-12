@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
       navToggle.setAttribute('aria-expanded', isExpanded);
     });
 
-    // Close mobile nav when clicking a link (except dropdown parent)
+    // Close mobile nav when clicking a link (except dropdown parents)
     const navLinks = navList.querySelectorAll('a');
     navLinks.forEach(link => {
-      // Don't close if it's the About link (dropdown parent)
-      if (!link.classList.contains('nav-link-about')) {
+      // Don't close if it's a dropdown parent link (About or Resources)
+      if (!link.classList.contains('nav-link-about') && !link.classList.contains('nav-link-resources')) {
         link.addEventListener('click', () => {
           navList.classList.remove('is-active');
           navToggle.classList.remove('is-active');
@@ -29,19 +29,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mobile dropdown toggle
-  const dropdownParent = document.querySelector('.nav-item-with-dropdown');
-  const dropdownLink = document.querySelector('.nav-link-about');
+  // Mobile dropdown toggle for all dropdowns
+  const dropdownParents = document.querySelectorAll('.nav-item-with-dropdown');
 
-  if (dropdownParent && dropdownLink) {
-    dropdownLink.addEventListener('click', (e) => {
-      // Only prevent default and toggle on mobile
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        dropdownParent.classList.toggle('dropdown-open');
-      }
-    });
-  }
+  dropdownParents.forEach(dropdownParent => {
+    const dropdownLink = dropdownParent.querySelector('a');
+
+    if (dropdownLink) {
+      dropdownLink.addEventListener('click', (e) => {
+        // Only prevent default and toggle on mobile
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const isOpen = dropdownParent.classList.toggle('dropdown-open');
+          dropdownLink.setAttribute('aria-expanded', isOpen);
+        }
+      });
+
+      // Update aria-expanded on hover for desktop (for screen readers)
+      dropdownParent.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 768) {
+          dropdownLink.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      dropdownParent.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 768) {
+          dropdownLink.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  });
 
   // Set active state for About link on homepage
   const currentPath = window.location.pathname;

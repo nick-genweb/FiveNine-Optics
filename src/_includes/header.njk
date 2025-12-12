@@ -15,9 +15,9 @@
         </button>
         <ul class="nav-list">
           <li class="nav-item-with-dropdown">
-            <a href="/" class="nav-link-about{% if page.url == '/' %} active{% endif %}">
+            <a href="/" class="nav-link-about{% if page.url == '/' %} active{% endif %}" aria-haspopup="true" aria-expanded="false">
               ABOUT
-              <svg class="nav-caret" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="nav-caret" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
@@ -25,7 +25,15 @@
           </li>
           <li><a href="/products" class="nav-link-products{% if page.url == '/products/' %} active{% endif %}">PRODUCTS</a></li>
           <li><a href="/markets" class="nav-link-markets{% if page.url == '/markets/' %} active{% endif %}">MARKETS</a></li>
-          <li><a href="/resources" class="nav-link-resources{% if page.url == '/resources/' %} active{% endif %}">RESOURCES</a></li>
+          <li class="nav-item-with-dropdown">
+            <a href="/resources" class="nav-link-resources{% if page.url == '/resources/' %} active{% endif %}" aria-haspopup="true" aria-expanded="false">
+              RESOURCES
+              <svg class="nav-caret" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <ul class="nav-dropdown"><li><a href="/resources#careers">Careers</a></li><li><a href="/resources#terms">Terms</a></li></ul>
+          </li>
           <li><a href="/contact" class="nav-link-contact{% if page.url == '/contact/' %} active{% endif %}">CONTACT</a></li>
         </ul>
       </nav>

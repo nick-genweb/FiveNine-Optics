@@ -5,6 +5,9 @@ module.exports = function(eleventyConfig) {
   // Watch CSS files for changes
   eleventyConfig.addWatchTarget("src/assets/css/");
 
+  // Add package.json version to global data for cache busting
+  eleventyConfig.addGlobalData("pkg", require("./package.json"));
+
   return {
     dir: {
       input: "src",
