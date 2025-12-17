@@ -71,6 +71,7 @@ body {
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 img {
@@ -1305,9 +1306,26 @@ p {
   border-radius: 0;
 }
 
+/* Products Summary Section */
+.products-summary {
+  padding: 0 0 var(--spacing-xl);
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.products-summary-text {
+  font-size: 1.4rem;
+  font-weight: var(--font-regular);
+  line-height: 1.5;
+  color: #ffffff;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /* Products Details Section */
 .products-details {
   padding: calc(110px * 0.70) 0; /* 110px with 70% scaling = 77px */
+  padding-top: 0;
   background-color: var(--color-bg-dark);
   color: var(--color-text-white);
 }
@@ -1325,8 +1343,16 @@ p {
   font-weight: var(--font-bold);
   line-height: 1.333;
   color: #4B80EA;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   letter-spacing: 0.05em;
+}
+
+.products-column-tagline {
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: var(--font-regular);
+  color: var(--color-text-white-muted);
+  margin-bottom: var(--spacing-sm);
 }
 
 .products-list {
@@ -1350,6 +1376,36 @@ p {
   position: absolute;
   left: 0;
   color: var(--color-text-white);
+}
+
+.products-list a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.products-list a:hover {
+  color: #6a9cf0;
+}
+
+/* Sub-bullet list */
+.products-list .products-sublist {
+  list-style: none !important;
+  list-style-type: none !important;
+  padding: 0;
+  margin: var(--spacing-sm) 0 0 0;
+}
+
+.products-list .products-sublist li {
+  font-size: 1.3rem;
+  padding-left: 1.5rem;
+  margin-bottom: var(--spacing-xs);
+  list-style: none !important;
+  list-style-type: none !important;
+}
+
+.products-list .products-sublist li::before {
+  content: '•';
 }
 
 /* Products Page Responsive */
@@ -1394,6 +1450,19 @@ p {
   .products-hero {
     padding-top: 43.4px;
     padding-bottom: var(--spacing-md); /* Reduce bottom padding on mobile */
+  }
+
+  /* Swap paragraph font sizes on mobile - first paragraph larger, second normal */
+  .products-intro.section-paragraph-large {
+    font-size: 1.8375rem !important; /* Large paragraph size - override global mobile reduction */
+    font-weight: var(--font-light);
+    line-height: 1.714;
+  }
+
+  .products-summary-text {
+    font-size: 1.4rem; /* Normal paragraph size */
+    font-weight: var(--font-regular);
+    line-height: 1.28125;
   }
 }
 
@@ -1523,8 +1592,22 @@ p {
     gap: var(--spacing-lg);
   }
 
+  .hero-main-text h1 {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+  }
+
+  .hero-main-text h1 br,
+  .hero-main-text p br {
+    display: none;
+  }
+
   .hero-main-text p {
-    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+  }
+
+  .section-paragraph-large {
+    font-size: 1.125rem;
+    line-height: 1.5;
   }
 
   .hero-feature h3 {
@@ -2655,6 +2738,50 @@ p {
     flex-direction: column;
     gap: 0.25rem;
   }
+
+  /* Section titles - reduce spacing to content below by half on mobile */
+  .spotlight-heading,
+  .our-story-heading,
+  .our-facility-heading,
+  .team-heading,
+  .products-heading,
+  .products-column-heading,
+  .markets-heading,
+  .resources-heading,
+  .resources-section-heading,
+  .careers-section-heading,
+  .terms-heading,
+  .contact-heading {
+    margin-bottom: calc((37px * 0.70) / 2) !important; /* Half of desktop: ~13px */
+  }
+
+  .careers-intro {
+    margin-bottom: calc(var(--spacing-xl) / 2); /* Half of desktop spacing */
+  }
+
+  /* Careers section mobile styles */
+  .careers-subheading {
+    margin-left: 0;
+    margin-bottom: calc(var(--spacing-md) / 2); /* Half of desktop: 1rem instead of 2rem */
+  }
+
+  .job-positions {
+    margin-left: 0;
+  }
+
+  .job-toggle {
+    padding: 0.5rem 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  .job-details {
+    padding: var(--spacing-sm);
+    padding-left: var(--spacing-sm);
+  }
+
+  .careers-apply {
+    margin-left: 0;
+  }
 }
 
 /* Contact Page
@@ -2716,12 +2843,22 @@ p {
 }
 
 .contact-street,
-.contact-city {
+.contact-city,
+.contact-email {
   font-size: 1.8375rem;
   font-weight: var(--font-medium);
   line-height: 1.2;
   color: var(--color-text-white);
   margin-bottom: 0.25rem;
+}
+
+.contact-email a {
+  color: var(--color-text-white);
+  text-decoration: none;
+}
+
+.contact-email a:hover {
+  text-decoration: underline;
 }
 
 .contact-hero-image {
@@ -2868,7 +3005,8 @@ p {
   }
 
   .contact-street,
-  .contact-city {
+  .contact-city,
+  .contact-email {
     font-size: 1.5rem;
   }
 }

@@ -1,3 +1,9 @@
+---
+description: Create git commit with automatic version bumping for asset changes
+allowed-tools: Bash(git *), Bash(npm version:*)
+argument-hint: (optional message)
+---
+
 # Commit with Version Bump
 
 You are helping the user create a git commit for the FiveNine Optics website. This command handles version bumping for asset changes and creates a proper commit.
