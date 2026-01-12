@@ -562,8 +562,8 @@ p {
 
 .industries-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--spacing-lg);
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--spacing-md);
   margin: calc(37px * 0.70) 0; /* 37px with 70% scaling = 25.9px */
   padding: var(--spacing-lg) 0;
   max-width: 1200px;
@@ -576,10 +576,11 @@ p {
 }
 
 .industry img {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   margin: 0 auto var(--spacing-sm);
   display: block;
+  object-fit: contain;
 }
 
 .industry h3 {
@@ -1631,6 +1632,7 @@ p {
   .industry img {
     width: 60px;
     height: 60px;
+    object-fit: contain;
   }
 
   .industry h3 {
